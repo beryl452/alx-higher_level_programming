@@ -1,19 +1,18 @@
 #!/usr/bin/python3
-if __name__ = "__main__":
+if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
-    import sys
-    argc = len(sys.argv)
-    if argc != 4:
-        print("Usage: {} <a> <operator> <b>".format(sys.argv[0]))
-        sys.exit(1)
-    if sys.argv[2] not in {"+", "-", "*", "/"}:
+    from sys import argv
+    if len(argv) != 4:
+        print("Usage:", argv[0], "<a> <operator> <b>")
+        exit(1)
+
+    op = argv[2]
+    f = {"+": add, "-": sub, "*": mul, "/": div}
+    if op not in f:
         print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
+        exit(1)
 
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    op = {"+": add, "-": sub, "*": mul, "/": div}
-    print("{:d} {:s} {:d} = {:d}".format(a, sys.argv[2], b, op[sys.argv[2]](a, b)))
-    
-
+    a = int(argv[1])
+    b = int(argv[3])
+    print("{:d} {:s} {:d} = {:d}".format(a, op, b, f[op](a, b)))
 
