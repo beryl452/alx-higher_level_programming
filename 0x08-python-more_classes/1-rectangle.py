@@ -18,7 +18,12 @@ class Rectangle:
             height(self, value)
     """
     def __init__(self, width=0, height=0):
-        """Initialize rectangles"""
+        """
+            Initialize rectangles
+            Args:
+                width (int): width
+                height (int): height
+        """
         self.width = width
         self.height = height
 
@@ -30,7 +35,7 @@ class Rectangle:
     @width.setter
     def width(self, value):
         """Setter sets width if value is int and > 0"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -44,7 +49,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Setter sets height if value is int > 0"""
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >=0")
