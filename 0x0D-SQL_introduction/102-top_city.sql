@@ -1,4 +1,4 @@
---displays the max temperature of each state (ordered by State name).
+-- displays the max temperature of each state (ordered by State name).
 
-SELECT state, MAX(value) as 'max_temp' FROM temperatures GROUP BY state ORDER BY state;
+SELECT city, AVG(value) as 'avg_temp' FROM temperatures WHERE `month`=7 OR `month`=8 GROUP BY city ORDER BY avg_temp DESC LIMIT 3;
 
