@@ -2,19 +2,12 @@
 """
     Fetches https://alx-intranet.hbtn.io/status
 """
-import urllib.request
-def get_status():
-    """
-        fetches https://alx-intranet.hbtn.io/status
-    """
-    url = "https://alx-intranet.hbtn.io/status"
-    with urllib.request.urlopen(url) as response:
-        html = response.read()
-        html_utf8 = html.decode("utf-8")
-        print("Body response:")
-        print("\t- type: {}".format(type(html)))
-        print("\t- content: {}".format(html))
-        print("\t- utf8 content: {}".format(html_utf8))
+from urllib import request
 
 if __name__ == "__main__":
-    get_status()
+    with request.urlopen("https://alx-intranet.hbtn.io/status") as response:
+        response = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(response)))
+        print("\t- content: {}".format(response))
+        print("\t- utf8 content: {}".format(response.decode("utf-8")))
